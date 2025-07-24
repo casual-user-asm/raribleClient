@@ -7,7 +7,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"time"
 )
 
 type Ownership struct {
@@ -100,14 +99,6 @@ type ExtendedTraitProperty struct {
 type TraitsRarityResponse struct {
 	Continuation *string                 `json:"continuation,omitempty"`
 	Traits       []ExtendedTraitProperty `json:"traits"`
-}
-
-func (o *Ownership) GetCreatedAt() (time.Time, error) {
-	return time.Parse(time.RFC3339, o.CreatedAt)
-}
-
-func (o *Ownership) GetLastUpdatedAt() (time.Time, error) {
-	return time.Parse(time.RFC3339, o.LastUpdatedAt)
 }
 
 func RetrieveOwnershipByID(client *http.Client, ownershipID string) (*Ownership, error) {

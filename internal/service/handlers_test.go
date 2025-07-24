@@ -53,7 +53,6 @@ func TestTraitsHandler(t *testing.T) {
 		httpmock.NewStringResponder(200, mockResponse),
 	)
 
-	// Set up request body
 	reqBody := client.TraitRarityRequest{
 		CollectionID: "test-collection",
 		Properties: []client.TraitProperty{
